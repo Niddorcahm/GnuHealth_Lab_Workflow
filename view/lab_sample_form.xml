@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<form>
+    <group id="header" col="6">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="lab_test_id"/>
+        <field name="lab_test_id"/>
+        <label name="lab_test"/>
+        <field name="lab_test"/>
+        <label name="patient"/>
+        <field name="patient"/>
+    </group>
+    <group id="sample_info" col="4">
+        <label name="sample_type"/>
+        <field name="sample_type"/>
+        <label name="state"/>
+        <field name="state"/>
+        <label name="origin_institution"/>
+        <field name="origin_institution" colspan="3"/>
+    </group>
+    <group id="dates" col="4">
+        <label name="collection_date"/>
+        <field name="collection_date"/>
+        <label name="received_date"/>
+        <field name="received_date"/>
+        <label name="completion_date"/>
+        <field name="completion_date"/>
+    </group>
+    <group id="status_info" col="4">
+        <label name="all_processes_completed"/>
+        <field name="all_processes_completed"/>
+    </group>
+    <group id="buttons" col="6">
+        <button name="collect" string="Collect Sample"/>
+        <button name="receive" string="Receive at Lab"/>
+        <button name="process" string="Start Processing"/>
+        <button name="auto_complete" string="Auto Complete" 
+                help="Complete automatically when all processes are finished"/>
+        <button name="complete" string="Manual Complete"/>
+        <button name="reject" string="Reject"/>
+    </group>
+    <separator string="Laboratory Processes" id="processes_sep" colspan="4"/>
+    <group id="lab_processes" col="6">
+        <button name="create_molecular_biology" string="Create Molecular Biology Process"
+                help="Create a new molecular biology process for this sample"/>
+        <button name="create_histopathology" string="Create Histopathology Process"
+                help="Create a new histopathology process for this sample"/>
+        <button name="create_immunoassay" string="Create Immunoassay Process"
+                help="Create a new immunoassay process for this sample"/>
+    </group>
+    <separator string="Generate Final Results" id="results_sep" colspan="4"/>
+    <group id="final_results" col="4">
+        <button name="create_lab_test" string="Lab: Create Test"
+                help="Create final lab test result (only when all processes are completed)"
+                states="{'invisible': Eval('state') != 'completed'}"/>
+    </group>
+    <separator name="notes" id="notes_sep" colspan="4"/>
+    <field name="notes" colspan="4"/>
+</form>

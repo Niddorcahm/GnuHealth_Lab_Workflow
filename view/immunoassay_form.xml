@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<form>
+    <notebook>
+        <page string="General" id="general">
+            <group id="header" col="6">
+                <label name="workflow_sample"/>
+                <field name="workflow_sample" colspan="3"/>
+                <label name="state"/>
+                <field name="state"/>
+            </group>
+            <group id="sample_info" col="6">
+                <label name="name"/>
+                <field name="name"/>
+                <label name="patient"/>
+                <field name="patient"/>
+                <label name="sample_type"/>
+                <field name="sample_type"/>
+            </group>
+            <group id="study_info" col="4">
+                <label name="assay_type"/>
+                <field name="assay_type"/>
+                <label name="responsible_professional"/>
+                <field name="responsible_professional"/>
+            </group>
+            <group id="buttons" col="6">
+                <button name="start_process" string="Start Process"/>
+                <button name="complete_process" string="Complete Process"/>
+                <button name="cancel" string="Cancel"/>
+            </group>
+        </page>
+        
+        <page string="Kit Information" id="kit_info">
+            <group id="kit_details" col="4">
+                <label name="kit_name"/>
+                <field name="kit_name" colspan="3"/>
+                <label name="kit_lot"/>
+                <field name="kit_lot"/>
+                <label name="kit_expiry"/>
+                <field name="kit_expiry"/>
+            </group>
+            <separator string="Quality Control" id="qc_sep"/>
+            <group id="quality_control" col="4">
+                <label name="positive_control"/>
+                <field name="positive_control"/>
+                <label name="negative_control"/>
+                <field name="negative_control"/>
+            </group>
+        </page>
+        
+        <page string="Test Results" id="results">
+            <group id="dates" col="4">
+                <label name="processing_date"/>
+                <field name="processing_date"/>
+                <label name="delivery_date"/>
+                <field name="delivery_date"/>
+            </group>
+            <separator string="Antibodies/Antigens Tested" id="antibodies_sep"/>
+            <field name="antibodies" colspan="4"/>
+        </page>
+        
+        <page string="Interpretation" id="interpretation">
+            <separator string="Clinical Interpretation" id="interp_sep"/>
+            <field name="interpretation" colspan="4"/>
+            <separator string="Observations" id="obs_sep"/>
+            <field name="observations" colspan="4"/>
+        </page>
+    </notebook>
+</form>

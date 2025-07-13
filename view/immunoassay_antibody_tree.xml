@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<tree editable="1">
+    <field name="test_type" expand="1"/>
+    <field name="name" expand="1"/>
+    <field name="method_specifics" expand="1"/>
+    <field name="quantitative_result" expand="1"/>
+    <field name="unit" expand="1"/>
+    <field name="qualitative_result" expand="1"/>
+    <field name="interpretation" expand="1"/>
+</tree>

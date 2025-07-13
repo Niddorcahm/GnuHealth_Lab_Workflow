@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<tree editable="1">
+    <field name="antibody_type" expand="1"/>
+    <field name="name" expand="1"/>
+    <field name="clone" expand="1"/>
+    <field name="dilution" expand="1"/>
+    <field name="result" expand="1"/>
+    <field name="percentage" expand="1"/>
+    <field name="intensity" expand="1"/>
+</tree>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<form>
+    <group id="main" col="4">
+        <label name="test_type"/>
+        <field name="test_type"/>
+        <label name="name"/>
+        <field name="name"/>
+        <label name="method_specifics"/>
+        <field name="method_specifics"/>
+    </group>
+    <separator string="Results" id="results_sep" colspan="4"/>
+    <group id="results" col="4">
+        <label name="quantitative_result"/>
+        <field name="quantitative_result"/>
+        <label name="unit"/>
+        <field name="unit"/>
+        <label name="qualitative_result"/>
+        <field name="qualitative_result"/>
+        <label name="interpretation"/>
+        <field name="interpretation"/>
+    </group>
+    <separator string="Reference Values" id="ref_sep" colspan="4"/>
+    <group id="reference" col="4">
+        <label name="reference_range"/>
+        <field name="reference_range"/>
+        <label name="cutoff_value"/>
+        <field name="cutoff_value"/>
+    </group>
+    <separator string="Observations" id="obs_sep" colspan="4"/>
+    <field name="observations" colspan="4"/>
+</form>

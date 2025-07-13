@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<form>
+    <group id="main" col="4">
+        <label name="assay_type"/>
+        <field name="assay_type" colspan="3"/>
+        <label name="kit_name"/>
+        <field name="kit_name" colspan="3"/>
+        <label name="kit_lot"/>
+        <field name="kit_lot"/>
+        <label name="responsible_professional"/>
+        <field name="responsible_professional" colspan="3"/>
+    </group>
+    <separator string="Initial Observations" id="observations_sep" colspan="4"/>
+    <field name="observations" colspan="4"/>
+</form>

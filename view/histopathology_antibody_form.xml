@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<form>
+    <group id="main" col="4">
+        <label name="antibody_type"/>
+        <field name="antibody_type"/>
+        <label name="name"/>
+        <field name="name"/>
+        <label name="clone"/>
+        <field name="clone"/>
+        <label name="dilution"/>
+        <field name="dilution"/>
+        <label name="result"/>
+        <field name="result"/>
+        <label name="percentage"/>
+        <field name="percentage"/>
+        <label name="intensity"/>
+        <field name="intensity"/>
+    </group>
+    <separator string="Observations" id="obs_sep" colspan="4"/>
+    <field name="observations" colspan="4"/>
+</form>

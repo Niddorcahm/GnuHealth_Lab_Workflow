@@ -1,0 +1,464 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        <!-- PARTE 1: LAB WORKFLOW SAMPLES -->
+        
+        <!-- Vista de formulario para muestras del workflow -->
+        <record model="ir.ui.view" id="gnuhealth_lab_workflow_sample_form">
+            <field name="model">gnuhealth.lab.workflow.sample</field>
+            <field name="type">form</field>
+            <field name="name">lab_sample_form</field>
+        </record>
+
+        <!-- Vista de árbol para muestras del workflow -->
+        <record model="ir.ui.view" id="gnuhealth_lab_workflow_sample_tree">
+            <field name="model">gnuhealth.lab.workflow.sample</field>
+            <field name="type">tree</field>
+            <field name="name">lab_sample_tree</field>
+        </record>
+
+        <!-- Acción para muestras del workflow -->
+        <record model="ir.action.act_window" id="act_gnuhealth_lab_workflow_sample">
+            <field name="name">Lab Workflow Samples</field>
+            <field name="res_model">gnuhealth.lab.workflow.sample</field>
+        </record>
+        
+        <record model="ir.action.act_window.view" id="act_gnuhealth_lab_workflow_sample_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_lab_workflow_sample_tree"/>
+            <field name="act_window" ref="act_gnuhealth_lab_workflow_sample"/>
+        </record>
+        
+        <record model="ir.action.act_window.view" id="act_gnuhealth_lab_workflow_sample_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_lab_workflow_sample_form"/>
+            <field name="act_window" ref="act_gnuhealth_lab_workflow_sample"/>
+        </record>
+
+        <!-- Menú para el workflow de laboratorio -->
+        <menuitem parent="health_lab.gnuhealth_laboratory_menu" 
+            action="act_gnuhealth_lab_workflow_sample"
+            id="menu_gnuhealth_lab_workflow_sample" 
+            sequence="40"/>
+        
+        <!-- Vista del wizard -->
+        <record model="ir.ui.view" id="create_lab_workflow_start_form">
+            <field name="model">gnuhealth.create_lab_workflow.start</field>
+            <field name="type">form</field>
+            <field name="name">create_lab_workflow_start_form</field>
+        </record>
+        
+        <!-- Wizard para crear workflow -->
+        <record model="ir.action.wizard" id="wizard_create_lab_workflow">
+            <field name="name">Create Lab Workflow</field>
+            <field name="wiz_name">gnuhealth.create_lab_workflow</field>
+            <field name="model">gnuhealth.patient.lab.test</field>
+        </record>
+        
+        <!-- Agregar el wizard como keyword (botón de acción) para Lab Test Request -->
+        <record model="ir.action.keyword" id="keyword_create_lab_workflow">
+            <field name="keyword">form_action</field>
+            <field name="model">gnuhealth.patient.lab.test,-1</field>
+            <field name="action" ref="wizard_create_lab_workflow"/>
+        </record>
+        
+        <!-- PARTE 2: BIOLOGÍA MOLECULAR -->
+        
+        <!-- Vista de formulario para biología molecular -->
+        <record model="ir.ui.view" id="gnuhealth_lab_molecular_biology_form">
+            <field name="model">gnuhealth.lab.molecular_biology</field>
+            <field name="type">form</field>
+            <field name="name">molecular_biology_form</field>
+        </record>
+
+        <!-- Vista de árbol para biología molecular -->
+        <record model="ir.ui.view" id="gnuhealth_lab_molecular_biology_tree">
+            <field name="model">gnuhealth.lab.molecular_biology</field>
+            <field name="type">tree</field>
+            <field name="name">molecular_biology_tree</field>
+        </record>
+
+        <!-- Acción para biología molecular -->
+        <record model="ir.action.act_window" id="act_gnuhealth_lab_molecular_biology">
+            <field name="name">Molecular Biology</field>
+            <field name="res_model">gnuhealth.lab.molecular_biology</field>
+        </record>
+        
+        <record model="ir.action.act_window.view" id="act_gnuhealth_lab_molecular_biology_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_lab_molecular_biology_tree"/>
+            <field name="act_window" ref="act_gnuhealth_lab_molecular_biology"/>
+        </record>
+        
+        <record model="ir.action.act_window.view" id="act_gnuhealth_lab_molecular_biology_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_lab_molecular_biology_form"/>
+            <field name="act_window" ref="act_gnuhealth_lab_molecular_biology"/>
+        </record>
+
+        <!-- Menú para biología molecular -->
+        <menuitem parent="health_lab.gnuhealth_laboratory_menu" 
+            action="act_gnuhealth_lab_molecular_biology"
+            id="menu_gnuhealth_lab_molecular_biology" 
+            sequence="50"
+            name="Molecular Biology"/>
+        
+        <!-- Acción relacionada desde workflow samples -->
+        <record model="ir.action.act_window" id="act_molecular_biology_from_sample">
+            <field name="name">Molecular Biology Processes</field>
+            <field name="res_model">gnuhealth.lab.molecular_biology</field>
+            <field name="domain" eval="[('workflow_sample', '=', Eval('active_id'))]" pyson="1"/>
+        </record>
+        
+        <record model="ir.action.keyword" id="act_open_molecular_biology_keyword">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.lab.workflow.sample,-1</field>
+            <field name="action" ref="act_molecular_biology_from_sample"/>
+        </record>
+        
+        <!-- Wizard para crear proceso de biología molecular -->
+        <record model="ir.ui.view" id="create_molecular_biology_start_form">
+            <field name="model">gnuhealth.create_molecular_biology.start</field>
+            <field name="type">form</field>
+            <field name="name">create_molecular_biology_start_form</field>
+        </record>
+        
+        <record model="ir.action.wizard" id="wizard_create_molecular_biology">
+            <field name="name">Create Molecular Biology Process</field>
+            <field name="wiz_name">gnuhealth.create_molecular_biology</field>
+            <field name="model">gnuhealth.lab.workflow.sample</field>
+        </record>
+        
+        <!-- PARTE 3: HISTOPATOLOGÍA -->
+        
+        <!-- Vista de formulario para histopatología -->
+        <record model="ir.ui.view" id="gnuhealth_lab_histopathology_form">
+            <field name="model">gnuhealth.lab.histopathology</field>
+            <field name="type">form</field>
+            <field name="name">histopathology_form</field>
+        </record>
+
+        <!-- Vista de árbol para histopatología -->
+        <record model="ir.ui.view" id="gnuhealth_lab_histopathology_tree">
+            <field name="model">gnuhealth.lab.histopathology</field>
+            <field name="type">tree</field>
+            <field name="name">histopathology_tree</field>
+        </record>
+        
+        <!-- Vistas para anticuerpos de histopatología -->
+        <record model="ir.ui.view" id="gnuhealth_lab_histopathology_antibody_form">
+            <field name="model">gnuhealth.lab.histopathology.antibody</field>
+            <field name="type">form</field>
+            <field name="name">histopathology_antibody_form</field>
+        </record>
+        
+        <record model="ir.ui.view" id="gnuhealth_lab_histopathology_antibody_tree">
+            <field name="model">gnuhealth.lab.histopathology.antibody</field>
+            <field name="type">tree</field>
+            <field name="name">histopathology_antibody_tree</field>
+        </record>
+
+        <!-- Acción para histopatología -->
+        <record model="ir.action.act_window" id="act_gnuhealth_lab_histopathology">
+            <field name="name">Histopathology</field>
+            <field name="res_model">gnuhealth.lab.histopathology</field>
+        </record>
+        
+        <record model="ir.action.act_window.view" id="act_gnuhealth_lab_histopathology_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_lab_histopathology_tree"/>
+            <field name="act_window" ref="act_gnuhealth_lab_histopathology"/>
+        </record>
+        
+        <record model="ir.action.act_window.view" id="act_gnuhealth_lab_histopathology_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_lab_histopathology_form"/>
+            <field name="act_window" ref="act_gnuhealth_lab_histopathology"/>
+        </record>
+
+        <!-- Menú para histopatología -->
+        <menuitem parent="health_lab.gnuhealth_laboratory_menu" 
+            action="act_gnuhealth_lab_histopathology"
+            id="menu_gnuhealth_lab_histopathology" 
+            sequence="60"
+            name="Histopathology"/>
+        
+        <!-- Acción relacionada desde workflow samples -->
+        <record model="ir.action.act_window" id="act_histopathology_from_sample">
+            <field name="name">Histopathology Processes</field>
+            <field name="res_model">gnuhealth.lab.histopathology</field>
+            <field name="domain" eval="[('workflow_sample', '=', Eval('active_id'))]" pyson="1"/>
+        </record>
+        
+        <record model="ir.action.keyword" id="act_open_histopathology_keyword">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.lab.workflow.sample,-1</field>
+            <field name="action" ref="act_histopathology_from_sample"/>
+        </record>
+        
+        <!-- Wizard para crear proceso de histopatología -->
+        <record model="ir.ui.view" id="create_histopathology_start_form">
+            <field name="model">gnuhealth.create_histopathology.start</field>
+            <field name="type">form</field>
+            <field name="name">create_histopathology_start_form</field>
+        </record>
+        
+        <record model="ir.action.wizard" id="wizard_create_histopathology">
+            <field name="name">Create Histopathology Process</field>
+            <field name="wiz_name">gnuhealth.create_histopathology</field>
+            <field name="model">gnuhealth.lab.workflow.sample</field>
+        </record>
+        
+        <!-- PARTE 4: INMUNOENSAYO -->
+        
+        <!-- Vista de formulario para inmunoensayo -->
+        <record model="ir.ui.view" id="gnuhealth_lab_immunoassay_form">
+            <field name="model">gnuhealth.lab.immunoassay</field>
+            <field name="type">form</field>
+            <field name="name">immunoassay_form</field>
+        </record>
+
+        <!-- Vista de árbol para inmunoensayo -->
+        <record model="ir.ui.view" id="gnuhealth_lab_immunoassay_tree">
+            <field name="model">gnuhealth.lab.immunoassay</field>
+            <field name="type">tree</field>
+            <field name="name">immunoassay_tree</field>
+        </record>
+        
+        <!-- Vistas para anticuerpos de inmunoensayo -->
+        <record model="ir.ui.view" id="gnuhealth_lab_immunoassay_antibody_form">
+            <field name="model">gnuhealth.lab.immunoassay.antibody</field>
+            <field name="type">form</field>
+            <field name="name">immunoassay_antibody_form</field>
+        </record>
+        
+        <record model="ir.ui.view" id="gnuhealth_lab_immunoassay_antibody_tree">
+            <field name="model">gnuhealth.lab.immunoassay.antibody</field>
+            <field name="type">tree</field>
+            <field name="name">immunoassay_antibody_tree</field>
+        </record>
+
+        <!-- Acción para inmunoensayo -->
+        <record model="ir.action.act_window" id="act_gnuhealth_lab_immunoassay">
+            <field name="name">Immunoassay</field>
+            <field name="res_model">gnuhealth.lab.immunoassay</field>
+        </record>
+        
+        <record model="ir.action.act_window.view" id="act_gnuhealth_lab_immunoassay_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_lab_immunoassay_tree"/>
+            <field name="act_window" ref="act_gnuhealth_lab_immunoassay"/>
+        </record>
+        
+        <record model="ir.action.act_window.view" id="act_gnuhealth_lab_immunoassay_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_lab_immunoassay_form"/>
+            <field name="act_window" ref="act_gnuhealth_lab_immunoassay"/>
+        </record>
+
+        <!-- Menú para inmunoensayo -->
+        <menuitem parent="health_lab.gnuhealth_laboratory_menu" 
+            action="act_gnuhealth_lab_immunoassay"
+            id="menu_gnuhealth_lab_immunoassay"
+            sequence="70"
+            name="Immunoassay"/>
+        
+        <!-- Acción relacionada desde workflow samples -->
+        <record model="ir.action.act_window" id="act_immunoassay_from_sample">
+            <field name="name">Immunoassay Processes</field>
+            <field name="res_model">gnuhealth.lab.immunoassay</field>
+            <field name="domain" eval="[('workflow_sample', '=', Eval('active_id'))]" pyson="1"/>
+        </record>
+        
+        <record model="ir.action.keyword" id="act_open_immunoassay_keyword">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.lab.workflow.sample,-1</field>
+            <field name="action" ref="act_immunoassay_from_sample"/>
+        </record>
+        
+        <!-- Wizard para crear proceso de inmunoensayo -->
+        <record model="ir.ui.view" id="create_immunoassay_start_form">
+            <field name="model">gnuhealth.create_immunoassay.start</field>
+            <field name="type">form</field>
+            <field name="name">create_immunoassay_start_form</field>
+        </record>
+        
+        <record model="ir.action.wizard" id="wizard_create_immunoassay">
+            <field name="name">Create Immunoassay Process</field>
+            <field name="wiz_name">gnuhealth.create_immunoassay</field>
+            <field name="model">gnuhealth.lab.workflow.sample</field>
+        </record>
+        
+        <!-- PARTE 5: ACCIÓN LAB: CREATE TEST DEL MÓDULO HEALTH_LAB -->
+        
+        <!-- Agregar la acción Lab: Create Test como keyword para Lab Workflow Sample -->
+        <record model="ir.action.keyword" id="keyword_create_lab_test_from_workflow">
+            <field name="keyword">form_action</field>
+            <field name="model">gnuhealth.lab.workflow.sample,-1</field>
+            <field name="action" ref="health_lab.wizard_create_lab_test"/>
+        </record>
+        
+        <!-- PARTE 6: MODELOS DE BOTONES -->
+        
+        <!-- Modelos de botones para Lab Workflow Sample -->
+        <record model="ir.model.button" id="collect_button">
+            <field name="name">collect</field>
+            <field name="string">Collect Sample</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.workflow.sample')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="receive_button">
+            <field name="name">receive</field>
+            <field name="string">Receive at Lab</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.workflow.sample')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="process_button">
+            <field name="name">process</field>
+            <field name="string">Start Processing</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.workflow.sample')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="auto_complete_button">
+            <field name="name">auto_complete</field>
+            <field name="string">Auto Complete</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.workflow.sample')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="complete_button">
+            <field name="name">complete</field>
+            <field name="string">Manual Complete</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.workflow.sample')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="reject_button">
+            <field name="name">reject</field>
+            <field name="string">Reject</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.workflow.sample')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="create_molecular_biology_button">
+            <field name="name">create_molecular_biology</field>
+            <field name="string">Create Molecular Biology Process</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.workflow.sample')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="create_histopathology_button">
+            <field name="name">create_histopathology</field>
+            <field name="string">Create Histopathology Process</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.workflow.sample')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="create_immunoassay_button">
+            <field name="name">create_immunoassay</field>
+            <field name="string">Create Immunoassay Process</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.workflow.sample')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="create_lab_test_button">
+            <field name="name">create_lab_test</field>
+            <field name="string">Lab: Create Test</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.workflow.sample')]"/>
+        </record>
+        
+        <!-- Modelos de botones para Molecular Biology -->
+        <record model="ir.model.button" id="start_process_mb_button">
+            <field name="name">start_process</field>
+            <field name="string">Start Process</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.molecular_biology')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="complete_extraction_button">
+            <field name="name">complete_extraction</field>
+            <field name="string">Complete Extraction</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.molecular_biology')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="complete_pcr_button">
+            <field name="name">complete_pcr</field>
+            <field name="string">Complete PCR</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.molecular_biology')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="complete_gel_button">
+            <field name="name">complete_gel</field>
+            <field name="string">Complete Gel</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.molecular_biology')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="complete_process_mb_button">
+            <field name="name">complete_process</field>
+            <field name="string">Complete Process</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.molecular_biology')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="cancel_mb_button">
+            <field name="name">cancel</field>
+            <field name="string">Cancel</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.molecular_biology')]"/>
+        </record>
+        
+        <!-- Modelos de botones para Histopathology -->
+        <record model="ir.model.button" id="start_macroscopy_button">
+            <field name="name">start_macroscopy</field>
+            <field name="string">Start Macroscopy</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.histopathology')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="complete_macroscopy_button">
+            <field name="name">complete_macroscopy</field>
+            <field name="string">Complete Macroscopy</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.histopathology')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="complete_processing_hp_button">
+            <field name="name">complete_processing</field>
+            <field name="string">Complete Processing</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.histopathology')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="complete_cutting_button">
+            <field name="name">complete_cutting</field>
+            <field name="string">Complete Cutting</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.histopathology')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="complete_staining_button">
+            <field name="name">complete_staining</field>
+            <field name="string">Complete Staining</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.histopathology')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="complete_process_hp_button">
+            <field name="name">complete_process</field>
+            <field name="string">Complete Process</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.histopathology')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="cancel_hp_button">
+            <field name="name">cancel</field>
+            <field name="string">Cancel</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.histopathology')]"/>
+        </record>
+        
+        <!-- Modelos de botones para Immunoassay -->
+        <record model="ir.model.button" id="start_process_ia_button">
+            <field name="name">start_process</field>
+            <field name="string">Start Process</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.immunoassay')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="complete_process_ia_button">
+            <field name="name">complete_process</field>
+            <field name="string">Complete Process</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.immunoassay')]"/>
+        </record>
+        
+        <record model="ir.model.button" id="cancel_ia_button">
+            <field name="name">cancel</field>
+            <field name="string">Cancel</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.immunoassay')]"/>
+        </record>
+        
+    </data>
+</tryton>
