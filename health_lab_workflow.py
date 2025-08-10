@@ -127,6 +127,9 @@ class GnuHealthLabWorkflowSample(ModelSQL, ModelView):
                            (Eval('state') != 'processing')),
                 'depends': ['all_processes_completed', 'state'],
             },
+            'create_lab_test': {
+                'invisible': Eval('state') != 'completed',
+            },
         })
     
     @staticmethod
@@ -190,6 +193,8 @@ class GnuHealthLabWorkflowSample(ModelSQL, ModelView):
         
         # Verificar que al menos haya un proceso completado
         # (no queremos auto-completar si no hay procesos)
+        pool = Pool()
+        MolecularBiology = pool.get('gnuhealth.lab.molecular_biology')
         total_molecular = len(MolecularBiology.search([
             ('workflow_sample', '=', self.id),
         ]))
@@ -296,9 +301,9 @@ class GnuHealthLabWorkflowSample(ModelSQL, ModelView):
         pass
     
     @classmethod
-    @ModelView.button_action('health_lab.wizard_create_lab_test')
+    @ModelView.button_action('health_lab_workflow.wizard_create_lab_test_from_workflow')
     def create_lab_test(cls, samples):
-        """Acción para crear Lab Test usando el wizard del módulo health_lab"""
+        """Acción para crear Lab Test Report usando nuestro wizard personalizado"""
         pass
 
 
@@ -362,35 +367,42 @@ class CreateLabWorkflowWizard(Wizard):
             Button('Create', 'create_workflow', 'tryton-ok', default=True),
         ])
     create_workflow = StateTransition()
-    
+
     def transition_create_workflow(self):
         pool = Pool()
         LabTestRequest = pool.get('gnuhealth.patient.lab.test')
         Lab = pool.get('gnuhealth.lab')
         Sample = pool.get('gnuhealth.lab.workflow.sample')
-        
+
         # Obtener el lab test request actual
         lab_test_request = LabTestRequest(Transaction().context['active_id'])
-        
+
         # Verificar el estado
         if lab_test_request.state != 'draft':
             raise UserWarning('invalid_state',
-                'Lab Test Request must be in draft state to create workflow.')
-        
-        # Crear o buscar el Lab Result
+                              'Lab Test Request must be in draft state to create workflow.')
+
+        # Verificar si ya existe un workflow para esta solicitud
+        existing = Sample.search([
+            ('name', '=', str(lab_test_request.request)),
+        ])
+
+        if existing:
+            raise UserWarning('workflow_exists',
+                              'A workflow sample already exists for this lab test request.')
+
+        # Crear o buscar el Lab Result (requerido para el workflow)
         lab_results = Lab.search([
             ('request_order', '=', lab_test_request.request),
         ])
-        
+
         if lab_results:
             lab_result = lab_results[0]
         else:
-            # Crear nuevo Lab Result
+            # Crear un Lab Result con los campos básicos requeridos
             lab_result = Lab()
             lab_result.request_order = lab_test_request.request
-            # 'name' en lab_test_request es el tipo de test (Many2One)
-            lab_result.test = lab_test_request.name
-            # Copiar el tipo de fuente (patient o other_source)
+            lab_result.test = lab_test_request.test_type  # ✅ Asignar el tipo de test requerido
             lab_result.source_type = lab_test_request.source_type
             if lab_test_request.source_type == 'patient':
                 lab_result.patient = lab_test_request.patient_id
@@ -399,32 +411,25 @@ class CreateLabWorkflowWizard(Wizard):
             lab_result.requestor = lab_test_request.doctor_id
             lab_result.date_requested = lab_test_request.date
             lab_result.save()
-        
-        # Verificar si ya existe un workflow
-        existing = Sample.search([
-            ('lab_test', '=', lab_result.id),
-        ])
-        
-        if existing:
-            raise UserWarning('workflow_exists',
-                'A workflow sample already exists for this lab test.')
-        
-        # Crear el registro de workflow
+
+        # Crear el registro de workflow sample
         sample = Sample()
-        sample.lab_test = lab_result
-        sample.name = str(lab_result.request_order)  # Usar el número de orden original
+        sample.lab_test = lab_result  # Asignar el lab result (satisface el campo requerido)
+        sample.name = str(lab_test_request.request)  # Usar el campo 'request' correcto
         sample.sample_type = self.start.sample_type
         sample.notes = self.start.notes
+
         # Copiar la institución de origen
         if self.start.origin_institution:
             sample.origin_institution = self.start.origin_institution
         elif hasattr(lab_test_request, 'origin_institution') and lab_test_request.origin_institution:
             sample.origin_institution = lab_test_request.origin_institution
+
         sample.save()
-        
+
         # Cambiar el estado del lab test request a 'ordered'
         LabTestRequest.write([lab_test_request], {
             'state': 'ordered',
         })
-        
+
         return 'end'

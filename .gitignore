@@ -1,0 +1,204 @@
+# === PYTHON ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# === VIRTUAL ENVIRONMENTS ===
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# === TRYTON SPECIFIC ===
+# Tryton database files
+*.sqlite
+*.db
+trytond.conf
+trytond.log
+
+# Tryton cache
+.tryton_cache/
+cache/
+
+# Tryton modules compiled
+*.pyc
+modules/__pycache__/
+
+# Tryton configuration files
+tryton.conf
+config.conf
+database.conf
+
+# Tryton logs
+tryton-*.log
+trytond-*.log
+*.tryton.log
+
+# === GNU HEALTH SPECIFIC ===
+# GNU Health installation
+gnuhealth/
+gnuhealth-*
+
+# Medical databases (CRITICAL - HIPAA)
+medical_db.sqlite
+health_db.sqlite
+patient_data.db
+lab_results.db
+
+# GNU Health configuration
+gnuhealth.conf
+health.conf
+
+# Medical data files (NEVER COMMIT)
+patient_*.xml
+lab_results_*.xml
+medical_records_*.xml
+health_records/
+patient_files/
+lab_data/
+medical_exports/
+
+# === LAB WORKFLOW SPECIFIC ===
+# Lab test results
+lab_tests/
+test_results/
+pathology_results/
+histopathology_data/
+molecular_biology_results/
+immunoassay_results/
+
+# Lab equipment integration files
+equipment_logs/
+instrument_data/
+analyzer_results/
+microscopy_images/
+
+# Workflow status files
+workflow_*.xml
+lab_workflow_*.xml
+process_*.xml
+
+# Medical images and files
+*.dcm        # DICOM files
+*.hl7        # HL7 messages
+*.xml        # Medical XML (may contain patient data)
+microscopy_*
+pathology_images/
+slide_images/
+
+# === DEVELOPMENT ===
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# === OS FILES ===
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# === TESTING ===
+test_data/
+mock_patients/
+sample_lab_results/
+test_db.sqlite
+test_*.xml
+
+# === LOGS ===
+logs/
+*.log
+debug.log
+error.log
+workflow.log
+
+# === BACKUP AND TEMPORARY ===
+backup/
+backups/
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+
+# === MEDICAL COMPLIANCE (HIPAA/GDPR) ===
+# Ensure no patient data is accidentally committed
+paciente_*
+patient_*
+caso_*
+case_*
+specimen_*
+muestra_*
+biopsia_*
+biopsy_*
+citologia_*
+cytology_*
+histologia_*
+histology_*
+inmunohistoquimica_*
+immunohistochemistry_*
+molecular_*
+lab_report_*
+informe_lab_*
+resultado_*
+result_*
+
+# Specific medical file patterns
+PHI_*              # Protected Health Information
+PII_*              # Personally Identifiable Information
+medical_record_*
+historia_clinica_*
+lab_order_*
+orden_laboratorio_*
+
+# === TRYTON MODULE SPECIFIC ===
+# Module installation artifacts
+MANIFEST.in
+setup.cfg
+setup.py.bak
+
+# Tryton translation files that might contain sensitive terms
+locale/*/LC_MESSAGES/*.po~
+*.pot~
+
+# === DATABASE MIGRATIONS ===
+migrations/
+migration_*.sql
+migrate_*.py
+schema_*.sql
+
+# === CONFIGURATION TEMPLATES ===
+*.conf.template
+*.ini.template
+config_template.*
+
+# === DEVELOPMENT NOTES ===
+dev_notes.md
+TODO.txt
+NOTES.txt
+scratch.*
+development.md

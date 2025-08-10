@@ -21,7 +21,7 @@ class GnuHealthLabImmunoassay(ModelSQL, ModelView):
         help='Sample being processed in immunoassay')
     
     # Información básica (campos función desde workflow_sample)
-    name = fields.Function(fields.Char('Order Number'), 'get_sample_info')
+    name = fields.Function(fields.Char('Order Number'), 'get_sample_info', searcher='search_sample_info')
     patient = fields.Function(fields.Many2One('gnuhealth.patient', 'Patient'), 
         'get_sample_info')
     sample_type = fields.Function(fields.Char('Sample Type'), 'get_sample_info')
@@ -127,14 +127,49 @@ class GnuHealthLabImmunoassay(ModelSQL, ModelView):
                             return desc
                 return ''
         return None
+
+    @classmethod
+    def search_sample_info(cls, name, clause):
+        """
+        Searcher method for the name field (Order Number)
+        """
+        # clause format: ('field_name', 'operator', 'value')
+        field, operator, value = clause
+
+        # Buscar en los registros de workflow_sample relacionados
+        if name == 'name':
+            # Buscar por número de orden en workflow_sample
+            pool = Pool()
+            WorkflowSample = pool.get('gnuhealth.lab.workflow.sample')
+            
+            # Buscar las muestras que coinciden con el criterio
+            workflow_samples = WorkflowSample.search([
+                ('name', operator, value)
+            ])
+            
+            # Retornar los IDs de immunoassay que tienen esas workflow_samples
+            if workflow_samples:
+                workflow_sample_ids = [ws.id for ws in workflow_samples]
+                return [('workflow_sample', 'in', workflow_sample_ids)]
+            else:
+                return [('id', '=', 0)]  # No hay coincidencias
+        else:
+            # Para otros campos, usar búsqueda estándar
+            return [('workflow_sample.name', operator, value)]
     
     @classmethod
     @ModelView.button
     def start_process(cls, tests):
-        cls.write(tests, {
-            'state': 'in_progress',
-            'processing_date': datetime.now(),
-        })
+        # CORRECCIÓN: Solo establecer processing_date si no existe
+        update_values = {'state': 'in_progress'}
+        
+        for test in tests:
+            if not test.processing_date:
+                update_values['processing_date'] = datetime.now()
+            break
+        
+        cls.write(tests, update_values)
+        
         # Actualizar el estado de la muestra a 'processing' si no lo está
         for test in tests:
             if test.workflow_sample.state == 'received':
@@ -144,10 +179,15 @@ class GnuHealthLabImmunoassay(ModelSQL, ModelView):
     @classmethod
     @ModelView.button
     def complete_process(cls, tests):
-        cls.write(tests, {
-            'state': 'completed',
-            'delivery_date': datetime.now(),
-        })
+        # CORRECCIÓN: Solo establecer delivery_date si no existe
+        update_values = {'state': 'completed'}
+        
+        for test in tests:
+            if not test.delivery_date:
+                update_values['delivery_date'] = datetime.now()
+            break
+        
+        cls.write(tests, update_values)
     
     @classmethod
     @ModelView.button

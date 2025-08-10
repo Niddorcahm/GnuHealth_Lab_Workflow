@@ -1,0 +1,957 @@
+# Spanish (Latin America) translations for health_lab_workflow module.
+# Copyright (C) 2025
+# This file is distributed under the same license as the health_lab_workflow package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: health_lab_workflow\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 12:00+0000\n"
+"PO-Revision-Date: 2025-01-01 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Spanish (Latin America)\n"
+"Language: es_419\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# === MODELOS PRINCIPALES ===
+
+msgctxt "model:gnuhealth.lab.workflow.sample,name:"
+msgid "Lab Workflow Sample"
+msgstr "Muestra del Flujo de Laboratorio"
+
+msgctxt "model:gnuhealth.lab.molecular_biology,name:"
+msgid "Lab Molecular Biology Process"
+msgstr "Proceso de Biología Molecular"
+
+msgctxt "model:gnuhealth.lab.histopathology,name:"
+msgid "Lab Histopathology Process"
+msgstr "Proceso de Histopatología"
+
+msgctxt "model:gnuhealth.lab.immunoassay,name:"
+msgid "Lab Immunoassay Process"
+msgstr "Proceso de Inmunoensayo"
+
+msgctxt "model:gnuhealth.lab.histopathology.antibody,name:"
+msgid "Histopathology Antibody/Marker"
+msgstr "Anticuerpo/Marcador de Histopatología"
+
+msgctxt "model:gnuhealth.lab.immunoassay.antibody,name:"
+msgid "Immunoassay Antibody/Antigen"
+msgstr "Anticuerpo/Antígeno de Inmunoensayo"
+
+msgctxt "model:gnuhealth.lab.molecular_biology.antibody,name:"
+msgid "Molecular Biology Antibody/Marker"
+msgstr "Anticuerpo/Marcador de Biología Molecular"
+
+# === WIZARDS ===
+
+msgctxt "model:gnuhealth.create_lab_workflow.start,name:"
+msgid "Create Lab Workflow Sample"
+msgstr "Crear Muestra del Flujo de Laboratorio"
+
+msgctxt "model:gnuhealth.create_molecular_biology.start,name:"
+msgid "Create Molecular Biology Process"
+msgstr "Crear Proceso de Biología Molecular"
+
+msgctxt "model:gnuhealth.create_histopathology.start,name:"
+msgid "Create Histopathology Process"
+msgstr "Crear Proceso de Histopatología"
+
+msgctxt "model:gnuhealth.create_immunoassay.start,name:"
+msgid "Create Immunoassay Process"
+msgstr "Crear Proceso de Inmunoensayo"
+
+msgctxt "model:gnuhealth.create_lab_test_from_workflow.start,name:"
+msgid "Create Lab Test from Workflow - Start"
+msgstr "Crear Examen de Laboratorio desde Flujo - Inicio"
+
+# === CAMPOS - LAB WORKFLOW SAMPLE ===
+
+msgctxt "field:gnuhealth.lab.workflow.sample,name:"
+msgid "Order Number"
+msgstr "Número de Orden"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,lab_test:"
+msgid "Lab Test Order"
+msgstr "Orden de Examen de Laboratorio"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,patient:"
+msgid "Patient"
+msgstr "Paciente"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,origin_institution:"
+msgid "Origin Institution"
+msgstr "Institución de Origen"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Sample Type"
+msgstr "Tipo de Muestra"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,state:"
+msgid "State"
+msgstr "Estado"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,collection_date:"
+msgid "Collection Date"
+msgstr "Fecha de Recolección"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,received_date:"
+msgid "Received Date"
+msgstr "Fecha de Recepción"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,completion_date:"
+msgid "Completion Date"
+msgstr "Fecha de Finalización"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,notes:"
+msgid "Notes"
+msgstr "Notas"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,all_processes_completed:"
+msgid "All Processes Completed"
+msgstr "Todos los Procesos Completados"
+
+# === TIPOS DE MUESTRA ===
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Blood"
+msgstr "Sangre"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Urine"
+msgstr "Orina"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Stool"
+msgstr "Deposiciones"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Tissue Fixed in Formalin"
+msgstr "Tejido Fijado en Formalina"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Paraffin Block"
+msgstr "Bloque de Parafina"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Exfoliative Smear"
+msgstr "Frotis Exfoliativo"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Puncture Smear"
+msgstr "Frotis por Punción"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Secretion"
+msgstr "Secreción"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Sputum"
+msgstr "Esputo"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Saliva"
+msgstr "Saliva"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Cerebrospinal Fluid"
+msgstr "Líquido Cefalorraquídeo"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Other"
+msgstr "Otro"
+
+# === ESTADOS DEL WORKFLOW ===
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,state:"
+msgid "Pending Collection"
+msgstr "Pendiente de Recolección"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,state:"
+msgid "Collected"
+msgstr "Recolectado"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,state:"
+msgid "In Transit"
+msgstr "En Tránsito"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,state:"
+msgid "Received at Lab"
+msgstr "Recibido en Laboratorio"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,state:"
+msgid "Processing"
+msgstr "En Procesamiento"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,state:"
+msgid "Completed"
+msgstr "Completado"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,state:"
+msgid "Rejected"
+msgstr "Rechazado"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,state:"
+msgid "No Sample"
+msgstr "Sin Muestra"
+
+# === CAMPOS - BIOLOGÍA MOLECULAR ===
+
+msgctxt "field:gnuhealth.lab.molecular_biology,workflow_sample:"
+msgid "Workflow Sample"
+msgstr "Muestra del Flujo"
+
+msgctxt "field:gnuhealth.lab.molecular_biology,name:"
+msgid "Order Number"
+msgstr "Número de Orden"
+
+msgctxt "field:gnuhealth.lab.molecular_biology,patient:"
+msgid "Patient"
+msgstr "Paciente"
+
+msgctxt "field:gnuhealth.lab.molecular_biology,sample_type:"
+msgid "Sample Type"
+msgstr "Tipo de Muestra"
+
+msgctxt "field:gnuhealth.lab.molecular_biology,analysis_type:"
+msgid "Analysis Type"
+msgstr "Tipo de Análisis"
+
+msgctxt "field:gnuhealth.lab.molecular_biology,responsible_professional:"
+msgid "Responsible Professional"
+msgstr "Profesional Responsable"
+
+msgctxt "field:gnuhealth.lab.molecular_biology,processing_date:"
+msgid "Processing Date"
+msgstr "Fecha de Procesamiento"
+
+msgctxt "field:gnuhealth.lab.molecular_biology,delivery_date:"
+msgid "Delivery Date"
+msgstr "Fecha de Entrega"
+
+msgctxt "field:gnuhealth.lab.molecular_biology,state:"
+msgid "State"
+msgstr "Estado"
+
+msgctxt "field:gnuhealth.lab.molecular_biology,observations:"
+msgid "General Observations"
+msgstr "Observaciones Generales"
+
+msgctxt "field:gnuhealth.lab.molecular_biology,analysis_result:"
+msgid "Analysis Result"
+msgstr "Resultado del Análisis"
+
+msgctxt "field:gnuhealth.lab.molecular_biology,antibodies:"
+msgid "Antibodies/Markers"
+msgstr "Anticuerpos/Marcadores"
+
+# === TIPOS DE ANÁLISIS MOLECULAR ===
+
+msgctxt "selection:gnuhealth.lab.molecular_biology,analysis_type:"
+msgid "PCR"
+msgstr "PCR"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology,analysis_type:"
+msgid "qPCR/Real-time PCR"
+msgstr "qPCR/PCR en Tiempo Real"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology,analysis_type:"
+msgid "DNA Sequencing"
+msgstr "Secuenciación de ADN"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology,analysis_type:"
+msgid "Electrophoresis"
+msgstr "Electroforesis"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology,analysis_type:"
+msgid "Blotting (Southern/Northern/Western)"
+msgstr "Blotting (Southern/Northern/Western)"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology,analysis_type:"
+msgid "Microarray"
+msgstr "Microarreglo"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology,analysis_type:"
+msgid "FISH"
+msgstr "FISH"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology,analysis_type:"
+msgid "Other"
+msgstr "Otro"
+
+# === ESTADOS BIOLOGÍA MOLECULAR ===
+
+msgctxt "selection:gnuhealth.lab.molecular_biology,state:"
+msgid "Draft"
+msgstr "Borrador"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology,state:"
+msgid "Processing"
+msgstr "En Procesamiento"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology,state:"
+msgid "Completed"
+msgstr "Completado"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology,state:"
+msgid "Cancelled"
+msgstr "Cancelado"
+
+# === CAMPOS - HISTOPATOLOGÍA ===
+
+msgctxt "field:gnuhealth.lab.histopathology,workflow_sample:"
+msgid "Workflow Sample"
+msgstr "Muestra del Flujo"
+
+msgctxt "field:gnuhealth.lab.histopathology,name:"
+msgid "Order Number"
+msgstr "Número de Orden"
+
+msgctxt "field:gnuhealth.lab.histopathology,patient:"
+msgid "Patient"
+msgstr "Paciente"
+
+msgctxt "field:gnuhealth.lab.histopathology,sample_type:"
+msgid "Sample Type"
+msgstr "Tipo de Muestra"
+
+msgctxt "field:gnuhealth.lab.histopathology,study_type:"
+msgid "Study Type"
+msgstr "Tipo de Estudio"
+
+msgctxt "field:gnuhealth.lab.histopathology,macroscopy_date:"
+msgid "Macroscopy Date"
+msgstr "Fecha de Macroscopía"
+
+msgctxt "field:gnuhealth.lab.histopathology,number_of_cuts:"
+msgid "Number of Cuts"
+msgstr "Número de Cortes"
+
+msgctxt "field:gnuhealth.lab.histopathology,number_of_cassettes:"
+msgid "Number of Cassettes"
+msgstr "Número de Cassettes"
+
+msgctxt "field:gnuhealth.lab.histopathology,macroscopy_observations:"
+msgid "Macroscopy Observations"
+msgstr "Observaciones de Macroscopía"
+
+msgctxt "field:gnuhealth.lab.histopathology,processing_date:"
+msgid "Processing Date"
+msgstr "Fecha de Procesamiento"
+
+msgctxt "field:gnuhealth.lab.histopathology,inclusion_date:"
+msgid "Inclusion Date"
+msgstr "Fecha de Inclusión"
+
+msgctxt "field:gnuhealth.lab.histopathology,cutting_date:"
+msgid "Cutting Date"
+msgstr "Fecha de Corte"
+
+msgctxt "field:gnuhealth.lab.histopathology,staining_date:"
+msgid "Staining Date"
+msgstr "Fecha de Tinción"
+
+msgctxt "field:gnuhealth.lab.histopathology,antibodies:"
+msgid "Antibodies/Markers"
+msgstr "Anticuerpos/Marcadores"
+
+msgctxt "field:gnuhealth.lab.histopathology,delivery_date:"
+msgid "Delivery Date"
+msgstr "Fecha de Entrega"
+
+msgctxt "field:gnuhealth.lab.histopathology,responsible_professional:"
+msgid "Responsible Professional"
+msgstr "Profesional Responsable"
+
+msgctxt "field:gnuhealth.lab.histopathology,state:"
+msgid "State"
+msgstr "Estado"
+
+msgctxt "field:gnuhealth.lab.histopathology,observations:"
+msgid "General Observations"
+msgstr "Observaciones Generales"
+
+msgctxt "field:gnuhealth.lab.histopathology,diagnosis:"
+msgid "Diagnosis"
+msgstr "Diagnóstico"
+
+# === TIPOS DE ESTUDIO HISTOPATOLÓGICO ===
+
+msgctxt "selection:gnuhealth.lab.histopathology,study_type:"
+msgid "Routine Histopathology"
+msgstr "Histopatología Corriente"
+
+msgctxt "selection:gnuhealth.lab.histopathology,study_type:"
+msgid "Histochemistry"
+msgstr "Histoquímica"
+
+msgctxt "selection:gnuhealth.lab.histopathology,study_type:"
+msgid "Immunohistochemistry"
+msgstr "Inmunohistoquímica"
+
+msgctxt "selection:gnuhealth.lab.histopathology,study_type:"
+msgid "FISH (Fluorescence In Situ Hybridization)"
+msgstr "FISH (Hibridación in situ Fluorescente)"
+
+msgctxt "selection:gnuhealth.lab.histopathology,study_type:"
+msgid "Cytology"
+msgstr "Citología"
+
+# === ESTADOS HISTOPATOLOGÍA ===
+
+msgctxt "selection:gnuhealth.lab.histopathology,state:"
+msgid "Draft"
+msgstr "Borrador"
+
+msgctxt "selection:gnuhealth.lab.histopathology,state:"
+msgid "Macroscopy"
+msgstr "Macroscopía"
+
+msgctxt "selection:gnuhealth.lab.histopathology,state:"
+msgid "Processing"
+msgstr "En Procesamiento"
+
+msgctxt "selection:gnuhealth.lab.histopathology,state:"
+msgid "Cutting"
+msgstr "Corte"
+
+msgctxt "selection:gnuhealth.lab.histopathology,state:"
+msgid "Staining"
+msgstr "Tinción"
+
+msgctxt "selection:gnuhealth.lab.histopathology,state:"
+msgid "Completed"
+msgstr "Completado"
+
+msgctxt "selection:gnuhealth.lab.histopathology,state:"
+msgid "Cancelled"
+msgstr "Cancelado"
+
+# === CAMPOS - INMUNOENSAYO ===
+
+msgctxt "field:gnuhealth.lab.immunoassay,workflow_sample:"
+msgid "Workflow Sample"
+msgstr "Muestra del Flujo"
+
+msgctxt "field:gnuhealth.lab.immunoassay,name:"
+msgid "Order Number"
+msgstr "Número de Orden"
+
+msgctxt "field:gnuhealth.lab.immunoassay,patient:"
+msgid "Patient"
+msgstr "Paciente"
+
+msgctxt "field:gnuhealth.lab.immunoassay,sample_type:"
+msgid "Sample Type"
+msgstr "Tipo de Muestra"
+
+msgctxt "field:gnuhealth.lab.immunoassay,assay_type:"
+msgid "Assay Type"
+msgstr "Tipo de Ensayo"
+
+msgctxt "field:gnuhealth.lab.immunoassay,kit_name:"
+msgid "Kit Name"
+msgstr "Nombre del Kit"
+
+msgctxt "field:gnuhealth.lab.immunoassay,kit_lot:"
+msgid "Kit Lot Number"
+msgstr "Número de Lote del Kit"
+
+msgctxt "field:gnuhealth.lab.immunoassay,kit_expiry:"
+msgid "Kit Expiry Date"
+msgstr "Fecha de Vencimiento del Kit"
+
+msgctxt "field:gnuhealth.lab.immunoassay,processing_date:"
+msgid "Processing Date"
+msgstr "Fecha de Procesamiento"
+
+msgctxt "field:gnuhealth.lab.immunoassay,delivery_date:"
+msgid "Delivery Date"
+msgstr "Fecha de Entrega"
+
+msgctxt "field:gnuhealth.lab.immunoassay,responsible_professional:"
+msgid "Responsible Professional"
+msgstr "Profesional Responsable"
+
+msgctxt "field:gnuhealth.lab.immunoassay,antibodies:"
+msgid "Antibodies/Antigens"
+msgstr "Anticuerpos/Antígenos"
+
+msgctxt "field:gnuhealth.lab.immunoassay,positive_control:"
+msgid "Positive Control"
+msgstr "Control Positivo"
+
+msgctxt "field:gnuhealth.lab.immunoassay,negative_control:"
+msgid "Negative Control"
+msgstr "Control Negativo"
+
+msgctxt "field:gnuhealth.lab.immunoassay,state:"
+msgid "State"
+msgstr "Estado"
+
+msgctxt "field:gnuhealth.lab.immunoassay,observations:"
+msgid "Observations"
+msgstr "Observaciones"
+
+msgctxt "field:gnuhealth.lab.immunoassay,interpretation:"
+msgid "Clinical Interpretation"
+msgstr "Interpretación Clínica"
+
+# === TIPOS DE INMUNOENSAYO ===
+
+msgctxt "selection:gnuhealth.lab.immunoassay,assay_type:"
+msgid "ELISA (Enzyme-Linked Immunosorbent Assay)"
+msgstr "ELISA (Ensayo por Inmunoabsorción Ligado a Enzimas)"
+
+msgctxt "selection:gnuhealth.lab.immunoassay,assay_type:"
+msgid "CLIA (Chemiluminescent Immunoassay)"
+msgstr "CLIA (Inmunoensayo Quimioluminiscente)"
+
+# === ESTADOS INMUNOENSAYO ===
+
+msgctxt "selection:gnuhealth.lab.immunoassay,state:"
+msgid "Draft"
+msgstr "Borrador"
+
+msgctxt "selection:gnuhealth.lab.immunoassay,state:"
+msgid "In Progress"
+msgstr "En Progreso"
+
+msgctxt "selection:gnuhealth.lab.immunoassay,state:"
+msgid "Completed"
+msgstr "Completado"
+
+msgctxt "selection:gnuhealth.lab.immunoassay,state:"
+msgid "Cancelled"
+msgstr "Cancelado"
+
+# === CAMPOS - ANTICUERPOS HISTOPATOLOGÍA ===
+
+msgctxt "field:gnuhealth.lab.histopathology.antibody,histopathology:"
+msgid "Histopathology"
+msgstr "Histopatología"
+
+msgctxt "field:gnuhealth.lab.histopathology.antibody,antibody_type:"
+msgid "Type"
+msgstr "Tipo"
+
+msgctxt "field:gnuhealth.lab.histopathology.antibody,name:"
+msgid "Name/Code"
+msgstr "Nombre/Código"
+
+msgctxt "field:gnuhealth.lab.histopathology.antibody,clone:"
+msgid "Clone"
+msgstr "Clon"
+
+msgctxt "field:gnuhealth.lab.histopathology.antibody,dilution:"
+msgid "Dilution"
+msgstr "Dilución"
+
+msgctxt "field:gnuhealth.lab.histopathology.antibody,result:"
+msgid "Result"
+msgstr "Resultado"
+
+msgctxt "field:gnuhealth.lab.histopathology.antibody,percentage:"
+msgid "Percentage (%)"
+msgstr "Porcentaje (%)"
+
+msgctxt "field:gnuhealth.lab.histopathology.antibody,intensity:"
+msgid "Intensity"
+msgstr "Intensidad"
+
+msgctxt "field:gnuhealth.lab.histopathology.antibody,observations:"
+msgid "Observations"
+msgstr "Observaciones"
+
+# === TIPOS DE ANTICUERPOS HISTOPATOLOGÍA ===
+
+msgctxt "selection:gnuhealth.lab.histopathology.antibody,antibody_type:"
+msgid "Primary Antibody"
+msgstr "Anticuerpo Primario"
+
+msgctxt "selection:gnuhealth.lab.histopathology.antibody,antibody_type:"
+msgid "Secondary Antibody"
+msgstr "Anticuerpo Secundario"
+
+msgctxt "selection:gnuhealth.lab.histopathology.antibody,antibody_type:"
+msgid "Marker"
+msgstr "Marcador"
+
+msgctxt "selection:gnuhealth.lab.histopathology.antibody,antibody_type:"
+msgid "Probe"
+msgstr "Sonda"
+
+msgctxt "selection:gnuhealth.lab.histopathology.antibody,antibody_type:"
+msgid "Special Stain"
+msgstr "Tinción Especial"
+
+# === RESULTADOS ANTICUERPOS ===
+
+msgctxt "selection:gnuhealth.lab.histopathology.antibody,result:"
+msgid "Positive"
+msgstr "Positivo"
+
+msgctxt "selection:gnuhealth.lab.histopathology.antibody,result:"
+msgid "Negative"
+msgstr "Negativo"
+
+msgctxt "selection:gnuhealth.lab.histopathology.antibody,result:"
+msgid "Focal Positive"
+msgstr "Positivo Focal"
+
+msgctxt "selection:gnuhealth.lab.histopathology.antibody,result:"
+msgid "Weak Positive"
+msgstr "Positivo Débil"
+
+msgctxt "selection:gnuhealth.lab.histopathology.antibody,result:"
+msgid "Strong Positive"
+msgstr "Positivo Fuerte"
+
+msgctxt "selection:gnuhealth.lab.histopathology.antibody,result:"
+msgid "Equivocal"
+msgstr "Equívoco"
+
+# === INTENSIDADES ===
+
+msgctxt "selection:gnuhealth.lab.histopathology.antibody,intensity:"
+msgid "1+"
+msgstr "1+"
+
+msgctxt "selection:gnuhealth.lab.histopathology.antibody,intensity:"
+msgid "2+"
+msgstr "2+"
+
+msgctxt "selection:gnuhealth.lab.histopathology.antibody,intensity:"
+msgid "3+"
+msgstr "3+"
+
+# === CAMPOS - ANTICUERPOS INMUNOENSAYO ===
+
+msgctxt "field:gnuhealth.lab.immunoassay.antibody,immunoassay:"
+msgid "Immunoassay"
+msgstr "Inmunoensayo"
+
+msgctxt "field:gnuhealth.lab.immunoassay.antibody,test_type:"
+msgid "Test Type"
+msgstr "Tipo de Prueba"
+
+msgctxt "field:gnuhealth.lab.immunoassay.antibody,name:"
+msgid "Antibody/Antigen Name"
+msgstr "Nombre del Anticuerpo/Antígeno"
+
+msgctxt "field:gnuhealth.lab.immunoassay.antibody,method_specifics:"
+msgid "Method Specifics"
+msgstr "Especificaciones del Método"
+
+msgctxt "field:gnuhealth.lab.immunoassay.antibody,quantitative_result:"
+msgid "Quantitative Result"
+msgstr "Resultado Cuantitativo"
+
+msgctxt "field:gnuhealth.lab.immunoassay.antibody,unit:"
+msgid "Unit"
+msgstr "Unidad"
+
+msgctxt "field:gnuhealth.lab.immunoassay.antibody,qualitative_result:"
+msgid "Qualitative Result"
+msgstr "Resultado Cualitativo"
+
+msgctxt "field:gnuhealth.lab.immunoassay.antibody,reference_range:"
+msgid "Reference Range"
+msgstr "Rango de Referencia"
+
+msgctxt "field:gnuhealth.lab.immunoassay.antibody,cutoff_value:"
+msgid "Cutoff Value"
+msgstr "Valor de Corte"
+
+msgctxt "field:gnuhealth.lab.immunoassay.antibody,interpretation:"
+msgid "Interpretation"
+msgstr "Interpretación"
+
+msgctxt "field:gnuhealth.lab.immunoassay.antibody,observations:"
+msgid "Observations"
+msgstr "Observaciones"
+
+# === TIPOS DE PRUEBA INMUNOENSAYO ===
+
+msgctxt "selection:gnuhealth.lab.immunoassay.antibody,test_type:"
+msgid "Antibody Detection"
+msgstr "Detección de Anticuerpos"
+
+msgctxt "selection:gnuhealth.lab.immunoassay.antibody,test_type:"
+msgid "Antigen Detection"
+msgstr "Detección de Antígenos"
+
+msgctxt "selection:gnuhealth.lab.immunoassay.antibody,test_type:"
+msgid "Antibody Titer"
+msgstr "Título de Anticuerpos"
+
+# === RESULTADOS CUALITATIVOS ===
+
+msgctxt "selection:gnuhealth.lab.immunoassay.antibody,qualitative_result:"
+msgid "Positive"
+msgstr "Positivo"
+
+msgctxt "selection:gnuhealth.lab.immunoassay.antibody,qualitative_result:"
+msgid "Negative"
+msgstr "Negativo"
+
+msgctxt "selection:gnuhealth.lab.immunoassay.antibody,qualitative_result:"
+msgid "Equivocal"
+msgstr "Equívoco"
+
+msgctxt "selection:gnuhealth.lab.immunoassay.antibody,qualitative_result:"
+msgid "Borderline"
+msgstr "Límite"
+
+# === INTERPRETACIONES ===
+
+msgctxt "selection:gnuhealth.lab.immunoassay.antibody,interpretation:"
+msgid "Reactive"
+msgstr "Reactivo"
+
+msgctxt "selection:gnuhealth.lab.immunoassay.antibody,interpretation:"
+msgid "Non-Reactive"
+msgstr "No Reactivo"
+
+msgctxt "selection:gnuhealth.lab.immunoassay.antibody,interpretation:"
+msgid "Indeterminate"
+msgstr "Indeterminado"
+
+msgctxt "selection:gnuhealth.lab.immunoassay.antibody,interpretation:"
+msgid "Low Titer"
+msgstr "Título Bajo"
+
+msgctxt "selection:gnuhealth.lab.immunoassay.antibody,interpretation:"
+msgid "High Titer"
+msgstr "Título Alto"
+
+# === CONTROLES DE CALIDAD ===
+
+msgctxt "selection:gnuhealth.lab.immunoassay,positive_control:"
+msgid "Pass"
+msgstr "Pasa"
+
+msgctxt "selection:gnuhealth.lab.immunoassay,positive_control:"
+msgid "Fail"
+msgstr "Falla"
+
+msgctxt "selection:gnuhealth.lab.immunoassay,positive_control:"
+msgid "Not Done"
+msgstr "No Realizado"
+
+msgctxt "selection:gnuhealth.lab.immunoassay,negative_control:"
+msgid "Pass"
+msgstr "Pasa"
+
+msgctxt "selection:gnuhealth.lab.immunoassay,negative_control:"
+msgid "Fail"
+msgstr "Falla"
+
+msgctxt "selection:gnuhealth.lab.immunoassay,negative_control:"
+msgid "Not Done"
+msgstr "No Realizado"
+
+# === WIZARD CAMPOS ===
+
+msgctxt "field:gnuhealth.create_lab_workflow.start,sample_type:"
+msgid "Sample Type"
+msgstr "Tipo de Muestra"
+
+msgctxt "field:gnuhealth.create_lab_workflow.start,notes:"
+msgid "Notes"
+msgstr "Notas"
+
+msgctxt "field:gnuhealth.create_lab_workflow.start,origin_institution:"
+msgid "Origin Institution"
+msgstr "Institución de Origen"
+
+msgctxt "field:gnuhealth.create_molecular_biology.start,study_type:"
+msgid "Study Type"
+msgstr "Tipo de Estudio"
+
+msgctxt "field:gnuhealth.create_molecular_biology.start,responsible_professional:"
+msgid "Responsible Professional"
+msgstr "Profesional Responsable"
+
+msgctxt "field:gnuhealth.create_molecular_biology.start,observations:"
+msgid "Initial Observations"
+msgstr "Observaciones Iniciales"
+
+msgctxt "field:gnuhealth.create_histopathology.start,study_type:"
+msgid "Study Type"
+msgstr "Tipo de Estudio"
+
+msgctxt "field:gnuhealth.create_histopathology.start,responsible_professional:"
+msgid "Responsible Professional"
+msgstr "Profesional Responsable"
+
+msgctxt "field:gnuhealth.create_histopathology.start,observations:"
+msgid "Initial Observations"
+msgstr "Observaciones Iniciales"
+
+msgctxt "field:gnuhealth.create_immunoassay.start,study_type:"
+msgid "Study Type"
+msgstr "Tipo de Estudio"
+
+msgctxt "field:gnuhealth.create_immunoassay.start,responsible_professional:"
+msgid "Responsible Professional"
+msgstr "Profesional Responsable"
+
+msgctxt "field:gnuhealth.create_immunoassay.start,kit_used:"
+msgid "Kit Used"
+msgstr "Kit Utilizado"
+
+msgctxt "field:gnuhealth.create_lab_test_from_workflow.start,message:"
+msgid "Information"
+msgstr "Información"
+
+# === TIPOS DE ESTUDIO WIZARD MOLECULAR ===
+
+msgctxt "selection:gnuhealth.create_molecular_biology.start,study_type:"
+msgid "PCR Endpoint"
+msgstr "PCR Punto Final"
+
+msgctxt "selection:gnuhealth.create_molecular_biology.start,study_type:"
+msgid "qPCR (Real-time PCR)"
+msgstr "qPCR (PCR en Tiempo Real)"
+
+msgctxt "selection:gnuhealth.create_molecular_biology.start,study_type:"
+msgid "RT-PCR"
+msgstr "RT-PCR"
+
+msgctxt "selection:gnuhealth.create_molecular_biology.start,study_type:"
+msgid "Sequencing"
+msgstr "Secuenciación"
+
+msgctxt "selection:gnuhealth.create_molecular_biology.start,study_type:"
+msgid "Genetic Material Extraction Only"
+msgstr "Solo Extracción de Material Genético"
+
+msgctxt "selection:gnuhealth.create_molecular_biology.start,study_type:"
+msgid "Protein Electrophoresis"
+msgstr "Electroforesis de Proteínas"
+
+# === ANTICUERPOS BIOLOGÍA MOLECULAR ===
+
+msgctxt "field:gnuhealth.lab.molecular_biology.antibody,molecular_biology:"
+msgid "Molecular Biology"
+msgstr "Biología Molecular"
+
+msgctxt "field:gnuhealth.lab.molecular_biology.antibody,antibody_type:"
+msgid "Antibody/Marker Type"
+msgstr "Tipo de Anticuerpo/Marcador"
+
+msgctxt "field:gnuhealth.lab.molecular_biology.antibody,name:"
+msgid "Name/Code"
+msgstr "Nombre/Código"
+
+msgctxt "field:gnuhealth.lab.molecular_biology.antibody,sequence:"
+msgid "Sequence"
+msgstr "Secuencia"
+
+msgctxt "field:gnuhealth.lab.molecular_biology.antibody,concentration:"
+msgid "Concentration"
+msgstr "Concentración"
+
+msgctxt "field:gnuhealth.lab.molecular_biology.antibody,dilution:"
+msgid "Dilution"
+msgstr "Dilución"
+
+msgctxt "field:gnuhealth.lab.molecular_biology.antibody,incubation_time:"
+msgid "Incubation Time"
+msgstr "Tiempo de Incubación"
+
+msgctxt "field:gnuhealth.lab.molecular_biology.antibody,temperature:"
+msgid "Temperature"
+msgstr "Temperatura"
+
+msgctxt "field:gnuhealth.lab.molecular_biology.antibody,result:"
+msgid "Result"
+msgstr "Resultado"
+
+msgctxt "field:gnuhealth.lab.molecular_biology.antibody,intensity:"
+msgid "Intensity"
+msgstr "Intensidad"
+
+msgctxt "field:gnuhealth.lab.molecular_biology.antibody,pattern:"
+msgid "Pattern"
+msgstr "Patrón"
+
+msgctxt "field:gnuhealth.lab.molecular_biology.antibody,observations:"
+msgid "Observations"
+msgstr "Observaciones"
+
+# === TIPOS ANTICUERPOS BIOLOGÍA MOLECULAR ===
+
+msgctxt "selection:gnuhealth.lab.molecular_biology.antibody,antibody_type:"
+msgid "Primary Antibody"
+msgstr "Anticuerpo Primario"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology.antibody,antibody_type:"
+msgid "Secondary Antibody"
+msgstr "Anticuerpo Secundario"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology.antibody,antibody_type:"
+msgid "Molecular Marker"
+msgstr "Marcador Molecular"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology.antibody,antibody_type:"
+msgid "Probe"
+msgstr "Sonda"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology.antibody,antibody_type:"
+msgid "Primer"
+msgstr "Primer"
+
+# === RESULTADOS BIOLOGÍA MOLECULAR ===
+
+msgctxt "selection:gnuhealth.lab.molecular_biology.antibody,result:"
+msgid "Positive"
+msgstr "Positivo"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology.antibody,result:"
+msgid "Negative"
+msgstr "Negativo"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology.antibody,result:"
+msgid "Weak"
+msgstr "Débil"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology.antibody,result:"
+msgid "Strong"
+msgstr "Fuerte"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology.antibody,result:"
+msgid "Amplified"
+msgstr "Amplificado"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology.antibody,result:"
+msgid "Not Amplified"
+msgstr "No Amplificado"
+
+# === INTENSIDADES BIOLOGÍA MOLECULAR ===
+
+msgctxt "selection:gnuhealth.lab.molecular_biology.antibody,intensity:"
+msgid "1+"
+msgstr "1+"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology.antibody,intensity:"
+msgid "2+"
+msgstr "2+"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology.antibody,intensity:"
+msgid "3+"
+msgstr "3+"
+
+# === EXTENSIÓN DEL LAB ===
+
+msgctxt "field:gnuhealth.lab,sample_state:"
+msgid "Sample State"
+msgstr "Estado de la Muestra"
+
+msgctxt "field:gnuhealth.lab,workflow_samples:"
+msgid "Workflow Samples"
+msgstr "Muestras del Flujo"

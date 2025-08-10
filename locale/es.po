@@ -1,0 +1,229 @@
+# Spanish translations for health_lab_workflow module.
+# Copyright (C) 2025
+# This file is distributed under the same license as the health_lab_workflow package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: health_lab_workflow\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 12:00+0000\n"
+"PO-Revision-Date: 2025-01-23 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,name:"
+msgid "Order Number"
+msgstr "Número de Orden"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,lab_test:"
+msgid "Lab Test Order"
+msgstr "Orden de Laboratorio"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,patient:"
+msgid "Patient"
+msgstr "Paciente"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,origin_institution:"
+msgid "Origin Institution"
+msgstr "Institución de Origen"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Sample Type"
+msgstr "Tipo de Muestra"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,state:"
+msgid "State"
+msgstr "Estado"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,collection_date:"
+msgid "Collection Date"
+msgstr "Fecha de Recolección"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,received_date:"
+msgid "Received Date"
+msgstr "Fecha de Recepción"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,completion_date:"
+msgid "Completion Date"
+msgstr "Fecha de Finalización"
+
+msgctxt "field:gnuhealth.lab.workflow.sample,notes:"
+msgid "Notes"
+msgstr "Notas"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Blood"
+msgstr "Sangre"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Urine"
+msgstr "Orina"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Stool"
+msgstr "Deposiciones"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Tissue Fixed in Formalin"
+msgstr "Tejido Fijado en Formalina"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Paraffin Block"
+msgstr "Molde de Parafina"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Exfoliative Smear"
+msgstr "Frotis Exfoliativo"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Puncture Smear"
+msgstr "Frotis por Punción"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Secretion"
+msgstr "Secreciones"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Sputum"
+msgstr "Esputo"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Saliva"
+msgstr "Saliva"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Cerebrospinal Fluid"
+msgstr "Líquido Cefalorraquídeo"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,sample_type:"
+msgid "Other"
+msgstr "Otro"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,state:"
+msgid "Pending Collection"
+msgstr "Pendiente de Recolección"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,state:"
+msgid "Collected"
+msgstr "Recolectado"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,state:"
+msgid "In Transit"
+msgstr "En Tránsito"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,state:"
+msgid "Received at Lab"
+msgstr "Recibido en Laboratorio"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,state:"
+msgid "Processing"
+msgstr "Procesando"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,state:"
+msgid "Completed"
+msgstr "Completado"
+
+msgctxt "selection:gnuhealth.lab.workflow.sample,state:"
+msgid "Rejected"
+msgstr "Rechazado"
+
+msgctxt "model:gnuhealth.lab.workflow.sample,name:"
+msgid "Lab Workflow Sample"
+msgstr "Muestra de Flujo de Laboratorio"
+
+msgctxt "field:gnuhealth.lab.molecular_biology,name:"
+msgid "Order Number"
+msgstr "Número de Orden"
+
+msgctxt "field:gnuhealth.lab.molecular_biology,patient:"
+msgid "Patient"
+msgstr "Paciente"
+
+msgctxt "field:gnuhealth.lab.molecular_biology,study_type:"
+msgid "Study Type"
+msgstr "Tipo de Estudio"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology,study_type:"
+msgid "PCR Endpoint"
+msgstr "PCR Tiempo Final"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology,study_type:"
+msgid "qPCR (Real-time PCR)"
+msgstr "qPCR (PCR en Tiempo Real)"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology,study_type:"
+msgid "RT-PCR"
+msgstr "RT-PCR"
+
+msgctxt "selection:gnuhealth.lab.molecular_biology,study_type:"
+msgid "Sequencing"
+msgstr "Secuenciación"
+
+msgctxt "model:gnuhealth.lab.molecular_biology,name:"
+msgid "Lab Molecular Biology Process"
+msgstr "Proceso de Biología Molecular"
+
+msgctxt "field:gnuhealth.lab.histopathology,name:"
+msgid "Order Number"
+msgstr "Número de Orden"
+
+msgctxt "field:gnuhealth.lab.histopathology,patient:"
+msgid "Patient"
+msgstr "Paciente"
+
+msgctxt "field:gnuhealth.lab.histopathology,study_type:"
+msgid "Study Type"
+msgstr "Tipo de Estudio"
+
+msgctxt "field:gnuhealth.lab.histopathology,diagnosis:"
+msgid "Diagnosis"
+msgstr "Diagnóstico"
+
+msgctxt "selection:gnuhealth.lab.histopathology,study_type:"
+msgid "Routine Histopathology"
+msgstr "Histopatología de Rutina"
+
+msgctxt "selection:gnuhealth.lab.histopathology,study_type:"
+msgid "Histochemistry"
+msgstr "Histoquímica"
+
+msgctxt "selection:gnuhealth.lab.histopathology,study_type:"
+msgid "Immunohistochemistry"
+msgstr "Inmunohistoquímica"
+
+msgctxt "selection:gnuhealth.lab.histopathology,study_type:"
+msgid "Cytology"
+msgstr "Citología"
+
+msgctxt "model:gnuhealth.lab.histopathology,name:"
+msgid "Lab Histopathology Process"
+msgstr "Proceso de Histopatología"
+
+msgctxt "field:gnuhealth.lab.immunoassay,name:"
+msgid "Order Number"
+msgstr "Número de Orden"
+
+msgctxt "field:gnuhealth.lab.immunoassay,patient:"
+msgid "Patient"
+msgstr "Paciente"
+
+msgctxt "field:gnuhealth.lab.immunoassay,assay_type:"
+msgid "Assay Type"
+msgstr "Tipo de Ensayo"
+
+msgctxt "selection:gnuhealth.lab.immunoassay,assay_type:"
+msgid "ELISA (Enzyme-Linked Immunosorbent Assay)"
+msgstr "ELISA (Ensayo por Inmunoabsorción Ligado a Enzimas)"
+
+msgctxt "selection:gnuhealth.lab.immunoassay,assay_type:"
+msgid "CLIA (Chemiluminescent Immunoassay)"
+msgstr "CLIA (Inmunoensayo Quimioluminiscente)"
+
+msgctxt "model:gnuhealth.lab.immunoassay,name:"
+msgid "Lab Immunoassay Process"
+msgstr "Proceso de Inmunoensayo"

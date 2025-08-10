@@ -1,78 +1,50 @@
 <?xml version="1.0"?>
 <form>
-    <notebook>
-        <page string="General" id="general">
-            <group id="header" col="6">
-                <label name="workflow_sample"/>
-                <field name="workflow_sample" colspan="3"/>
-                <label name="state"/>
-                <field name="state"/>
-            </group>
-            <group id="sample_info" col="6">
-                <label name="name"/>
-                <field name="name"/>
-                <label name="patient"/>
-                <field name="patient"/>
-                <label name="sample_type"/>
-                <field name="sample_type"/>
-            </group>
-            <group id="study_info" col="4">
-                <label name="study_type"/>
-                <field name="study_type"/>
-                <label name="responsible_professional"/>
-                <field name="responsible_professional"/>
-            </group>
-            <group id="buttons" col="8">
-                <button name="start_macroscopy" string="Start Macroscopy"/>
-                <button name="complete_macroscopy" string="Complete Macroscopy"/>
-                <button name="complete_processing" string="Complete Processing"/>
-                <button name="complete_cutting" string="Complete Cutting"/>
-                <button name="complete_staining" string="Complete Staining"/>
-                <button name="complete_process" string="Complete Process"/>
-                <button name="cancel" string="Cancel"/>
-            </group>
-        </page>
-        
-        <page string="Macroscopy" id="macroscopy">
-            <group id="macroscopy_info" col="4">
-                <label name="macroscopy_date"/>
-                <field name="macroscopy_date"/>
-                <newline/>
-                <label name="number_of_cuts"/>
-                <field name="number_of_cuts"/>
-                <label name="number_of_cassettes"/>
-                <field name="number_of_cassettes"/>
-            </group>
-            <separator string="Macroscopy Observations" id="macro_obs_sep"/>
-            <field name="macroscopy_observations" colspan="4"/>
-        </page>
-        
-        <page string="Processing" id="processing">
-            <group id="processing_info" col="4">
-                <label name="processing_date"/>
-                <field name="processing_date"/>
-                <label name="inclusion_date"/>
-                <field name="inclusion_date"/>
-                <label name="cutting_date"/>
-                <field name="cutting_date"/>
-                <label name="staining_date"/>
-                <field name="staining_date"/>
-            </group>
-        </page>
-        
-        <page string="Antibodies/Markers" id="antibodies">
-            <field name="antibodies" colspan="4"/>
-        </page>
-        
-        <page string="Results" id="results">
-            <separator string="Diagnosis" id="diagnosis_sep"/>
-            <field name="diagnosis" colspan="4"/>
-            <separator string="General Observations" id="obs_sep"/>
-            <field name="observations" colspan="4"/>
-            <group id="delivery" col="4">
-                <label name="delivery_date"/>
-                <field name="delivery_date"/>
-            </group>
-        </page>
-    </notebook>
+    <group id="header_info" col="4">
+        <field name="workflow_sample"/>
+        <field name="state"/>
+        <field name="name"/>
+        <field name="patient"/>
+    </group>
+    
+    <group id="study_info" col="2">
+        <field name="study_type"/>
+        <field name="responsible_professional"/>
+    </group>
+    
+    <separator name="Process Control" string="Process Control"/>
+    <group id="buttons" col="4">
+        <button name="start_macroscopy" string="Start Macroscopy"/>
+        <button name="complete_macroscopy" string="Complete Macroscopy"/>
+        <button name="complete_process" string="Complete Process"/>
+        <button name="cancel" string="Cancel"/>
+    </group>
+    
+    <separator name="Macroscopy" string="Macroscopy"/>
+    <group id="macroscopy" col="3">
+        <field name="macroscopy_date"/>
+        <field name="number_of_cuts"/>
+        <field name="number_of_cassettes"/>
+    </group>
+    <field name="macroscopy_observations"/>
+    
+    <separator name="Processing Dates" string="Processing Dates"/>
+    <group id="processing" col="3">
+        <field name="processing_date"/>
+        <field name="inclusion_date"/>
+        <field name="cutting_date"/>
+    </group>
+    <group id="staining" col="2">
+        <field name="staining_date"/>
+        <field name="delivery_date"/>
+    </group>
+    
+    <separator name="Antibodies/Markers" string="Antibodies/Markers"/>
+    <field name="antibodies"/>
+    
+    <separator name="Diagnosis &amp; Results" string="Diagnosis &amp; Results"/>
+    <field name="diagnosis"/>
+    
+    <separator name="General Observations" string="General Observations"/>
+    <field name="observations"/>
 </form>

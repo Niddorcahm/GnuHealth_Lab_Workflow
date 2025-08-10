@@ -1,113 +1,36 @@
 <?xml version="1.0"?>
 <form>
-    <notebook>
-        <page string="General" id="general">
-            <group id="header" col="6">
-                <label name="workflow_sample"/>
-                <field name="workflow_sample" colspan="3"/>
-                <label name="state"/>
-                <field name="state"/>
-            </group>
-            <group id="sample_info" col="6">
-                <label name="name"/>
-                <field name="name"/>
-                <label name="patient"/>
-                <field name="patient"/>
-                <label name="sample_type"/>
-                <field name="sample_type"/>
-            </group>
-            <group id="study_info" col="4">
-                <label name="study_type"/>
-                <field name="study_type"/>
-                <label name="responsible_professional"/>
-                <field name="responsible_professional"/>
-            </group>
-            <group id="buttons" col="6">
-                <button name="start_process" string="Start Process"/>
-                <button name="complete_process" string="Complete Process"/>
-                <button name="cancel" string="Cancel"/>
-            </group>
-        </page>
-        
-        <page string="Extraction" id="extraction">
-            <group id="extraction_header" col="4">
-                <label name="extraction_completed"/>
-                <field name="extraction_completed"/>
-                <button name="complete_extraction" string="Complete Extraction" colspan="2"/>
-            </group>
-            <separator string="Extraction Details" id="extraction_sep"/>
-            <group id="extraction_info" col="4">
-                <label name="extraction_date"/>
-                <field name="extraction_date"/>
-                <label name="extraction_professional"/>
-                <field name="extraction_professional"/>
-                <label name="genetic_material_type"/>
-                <field name="genetic_material_type"/>
-                <label name="extraction_kit"/>
-                <field name="extraction_kit"/>
-            </group>
-            <separator string="Quality Control" id="qc_sep"/>
-            <group id="quality_control" col="4">
-                <label name="concentration"/>
-                <field name="concentration"/>
-                <newline/>
-                <label name="purity_260_280"/>
-                <field name="purity_260_280"/>
-                <label name="purity_260_230"/>
-                <field name="purity_260_230"/>
-            </group>
-        </page>
-        
-        <page string="PCR" id="pcr">
-            <group id="pcr_header" col="4">
-                <label name="pcr_completed"/>
-                <field name="pcr_completed"/>
-                <button name="complete_pcr" string="Complete PCR" colspan="2"/>
-            </group>
-            <separator string="PCR Details" id="pcr_sep"/>
-            <group id="pcr_standard" col="4">
-                <label name="pcr_date"/>
-                <field name="pcr_date"/>
-                <label name="pcr_kit"/>
-                <field name="pcr_kit"/>
-            </group>
-            <group id="pcr_rt" col="4">
-                <label name="pcr_pre_date"/>
-                <field name="pcr_pre_date"/>
-                <label name="pcr_post_date"/>
-                <field name="pcr_post_date"/>
-            </group>
-            <separator string="Results" id="results_sep"/>
-            <group id="pcr_results" col="4">
-                <label name="pcr_result"/>
-                <field name="pcr_result"/>
-                <label name="ct_value"/>
-                <field name="ct_value"/>
-            </group>
-        </page>
-        
-        <page string="Electrophoresis" id="electrophoresis">
-            <group id="gel_header" col="4">
-                <label name="gel_completed"/>
-                <field name="gel_completed"/>
-                <button name="complete_gel" string="Complete Gel" colspan="2"/>
-            </group>
-            <separator string="Gel Details" id="gel_sep"/>
-            <group id="gel_info" col="4">
-                <label name="gel_date"/>
-                <field name="gel_date"/>
-                <label name="gel_type"/>
-                <field name="gel_type"/>
-            </group>
-        </page>
-        
-        <page string="Notes" id="notes">
-            <separator string="Observations" id="obs_sep"/>
-            <field name="observations" colspan="4"/>
-            <group id="delivery" col="4">
-                <label name="delivery_date"/>
-                <field name="delivery_date"/>
-            </group>
-        </page>
-    </notebook>
+    <group id="header_info" col="4">
+        <field name="workflow_sample"/>
+        <field name="state"/>
+        <field name="name"/>
+        <field name="patient"/>
+    </group>
+    
+    <group id="analysis_info" col="2">
+        <field name="analysis_type"/>
+        <field name="responsible_professional"/>
+    </group>
+    
+    <separator name="Process Control" string="Process Control"/>
+    <group id="buttons" col="3">
+        <button name="start_process" string="Start Process"/>
+        <button name="complete_process" string="Complete Process"/>
+        <button name="cancel" string="Cancel"/>
+    </group>
+    
+    <separator name="Processing Dates" string="Processing Dates"/>
+    <group id="dates" col="2">
+        <field name="processing_date"/>
+        <field name="delivery_date"/>
+    </group>
+    
+    <separator name="Analysis Results" string="Analysis Results"/>
+    <field name="analysis_result"/>
+    
+    <separator name="Antibodies/Markers" string="Antibodies/Markers"/>
+    <field name="antibodies"/>
+    
+    <separator name="Observations" string="Observations"/>
+    <field name="observations"/>
 </form>

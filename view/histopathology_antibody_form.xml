@@ -9,12 +9,18 @@
         <field name="clone"/>
         <label name="dilution"/>
         <field name="dilution"/>
+        <label name="incubation_time"/>
+        <field name="incubation_time"/>
+        <label name="temperature"/>
+        <field name="temperature"/>
         <label name="result"/>
         <field name="result"/>
-        <label name="percentage"/>
-        <field name="percentage"/>
         <label name="intensity"/>
         <field name="intensity"/>
+        <label name="pattern"/>
+        <field name="pattern"/>
+        <label name="percentage"/>
+        <field name="percentage"/>
     </group>
     <separator string="Observations" id="obs_sep" colspan="4"/>
     <field name="observations" colspan="4"/>

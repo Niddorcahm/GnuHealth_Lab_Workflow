@@ -289,13 +289,27 @@
             <field name="model">gnuhealth.lab.workflow.sample</field>
         </record>
         
-        <!-- PARTE 5: ACCIÓN LAB: CREATE TEST DEL MÓDULO HEALTH_LAB -->
+        <!-- PARTE 5: WIZARD PERSONALIZADO PARA CREAR LAB TEST -->
         
-        <!-- Agregar la acción Lab: Create Test como keyword para Lab Workflow Sample -->
+        <!-- Vista del wizard para crear Lab Test desde Workflow Sample -->
+        <record model="ir.ui.view" id="create_lab_test_from_workflow_start_form">
+            <field name="model">gnuhealth.create_lab_test_from_workflow.start</field>
+            <field name="type">form</field>
+            <field name="name">create_lab_test_from_workflow_start_form</field>
+        </record>
+        
+        <!-- Wizard personalizado para crear Lab Test desde Workflow Sample -->
+        <record model="ir.action.wizard" id="wizard_create_lab_test_from_workflow">
+            <field name="name">Lab: Create Test Report</field>
+            <field name="wiz_name">gnuhealth.create_lab_test_from_workflow</field>
+            <field name="model">gnuhealth.lab.workflow.sample</field>
+        </record>
+        
+        <!-- Agregar el wizard como keyword (botón de acción) para Lab Workflow Sample -->
         <record model="ir.action.keyword" id="keyword_create_lab_test_from_workflow">
             <field name="keyword">form_action</field>
             <field name="model">gnuhealth.lab.workflow.sample,-1</field>
-            <field name="action" ref="health_lab.wizard_create_lab_test"/>
+            <field name="action" ref="wizard_create_lab_test_from_workflow"/>
         </record>
         
         <!-- PARTE 6: MODELOS DE BOTONES -->
@@ -357,7 +371,7 @@
         
         <record model="ir.model.button" id="create_lab_test_button">
             <field name="name">create_lab_test</field>
-            <field name="string">Lab: Create Test</field>
+            <field name="string">Lab: Create Test Report</field>
             <field name="model" search="[('model', '=', 'gnuhealth.lab.workflow.sample')]"/>
         </record>
         

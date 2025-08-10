@@ -21,6 +21,7 @@ def register():
         lab_test_request_origin.GnuHealthPatientLabTestWithOrigin,
         lab_test_request_origin.CreateLabWorkflowStartWithOrigin,
         molecular_biology.GnuHealthLabMolecularBiology,
+        molecular_biology.GnuHealthLabMolecularBiologyAntibody,  # <- AGREGADO
         molecular_biology_wizard.CreateMolecularBiologyStart,
         histopathology.GnuHealthLabHistopathology,
         histopathology.GnuHealthLabHistopathologyAntibody,

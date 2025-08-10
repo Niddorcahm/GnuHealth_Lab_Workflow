@@ -184,42 +184,74 @@ class GnuHealthLabHistopathology(ModelSQL, ModelView):
                     raise UserWarning('missing_cassettes',
                         'Number of cassettes is required to complete macroscopy.')
         
-        cls.write(tests, {
-            'state': 'processing',
-            'processing_date': datetime.now(),
-        })
+        # CORRECCIÓN: Solo establecer processing_date si no existe
+        update_values = {'state': 'processing'}
+        for test in tests:
+            if not test.processing_date:
+                update_values['processing_date'] = datetime.now()
+                break
+        
+        cls.write(tests, update_values)
     
     @classmethod
     @ModelView.button
     def complete_processing(cls, tests):
-        cls.write(tests, {
-            'state': 'cutting',
-        })
+        # CORRECCIÓN: Solo establecer inclusion_date si no existe
+        update_values = {'state': 'cutting'}
+        for test in tests:
+            if not test.inclusion_date:
+                update_values['inclusion_date'] = datetime.now()
+                break
+        
+        cls.write(tests, update_values)
     
     @classmethod
     @ModelView.button
     def complete_cutting(cls, tests):
-        cls.write(tests, {
-            'state': 'staining',
-            'cutting_date': datetime.now() if not tests[0].cutting_date else tests[0].cutting_date,
-        })
+        # CORRECCIÓN: Solo establecer cutting_date si no existe
+        update_values = {'state': 'staining'}
+        for test in tests:
+            if not test.cutting_date:
+                update_values['cutting_date'] = datetime.now()
+                break
+        
+        cls.write(tests, update_values)
     
     @classmethod
     @ModelView.button
     def complete_staining(cls, tests):
-        cls.write(tests, {
-            'state': 'completed',
-            'staining_date': datetime.now() if not tests[0].staining_date else tests[0].staining_date,
-            'delivery_date': datetime.now(),
-        })
+        # CORRECCIÓN: Solo establecer fechas si no existen
+        update_values = {'state': 'completed'}
+        
+        for test in tests:
+            if not test.staining_date:
+                update_values['staining_date'] = datetime.now()
+            if not test.delivery_date:
+                update_values['delivery_date'] = datetime.now()
+            
+            # MEJORA 1: Si es citología, copiar diagnóstico a health_lab
+            if test.study_type == 'cytology' and test.diagnosis:
+                cls._copy_diagnosis_to_lab_result(test)
+            break
+        
+        cls.write(tests, update_values)
     
     @classmethod
     @ModelView.button
     def complete_process(cls, tests):
-        cls.write(tests, {
-            'state': 'completed',
-            'delivery_date': datetime.now(),
-        })
+        # CORRECCIÓN: Solo establecer delivery_date si no existe
+        update_values = {'state': 'completed'}
+        
+        for test in tests:
+            if not test.delivery_date:
+                update_values['delivery_date'] = datetime.now()
+            
+            # MEJORA 1: Si es citología, copiar diagnóstico a health_lab
+            if test.study_type == 'cytology' and test.diagnosis:
+                cls._copy_diagnosis_to_lab_result(test)
+            break
+        
+        cls.write(tests, update_values)
     
     @classmethod
     @ModelView.button
@@ -227,6 +259,39 @@ class GnuHealthLabHistopathology(ModelSQL, ModelView):
         cls.write(tests, {
             'state': 'cancelled',
         })
+    
+    @classmethod
+    def _copy_diagnosis_to_lab_result(cls, histopathology_process):
+        """MEJORA 1: Copia el diagnóstico de citología al resultado de laboratorio"""
+        try:
+            # Obtener el Lab Result asociado
+            lab_result = histopathology_process.workflow_sample.lab_test
+            
+            if lab_result and histopathology_process.diagnosis:
+                # Buscar si existe un resultado con el nombre 'Diagnosis' o 'Diagnóstico'
+                LabTestResult = Pool().get('gnuhealth.lab.test.result')
+                existing_result = LabTestResult.search([
+                    ('lab_test', '=', lab_result.id),
+                    ('analyte', 'in', ['Diagnosis', 'Diagnóstico', 'Cytological Diagnosis'])
+                ])
+                
+                if existing_result:
+                    # Actualizar resultado existente
+                    LabTestResult.write(existing_result, {
+                        'result': histopathology_process.diagnosis
+                    })
+                else:
+                    # Crear nuevo resultado
+                    new_result = LabTestResult()
+                    new_result.lab_test = lab_result
+                    new_result.analyte = 'Cytological Diagnosis'
+                    new_result.result = histopathology_process.diagnosis
+                    new_result.save()
+                    
+        except Exception as e:
+            # Log el error pero no interrumpir el proceso
+            import logging
+            logging.warning(f"Could not copy diagnosis to lab result: {e}")
     
     @classmethod
     def create(cls, vlist):
